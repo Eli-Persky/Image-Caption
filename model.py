@@ -12,14 +12,14 @@ class EncoderCNN(nn.Module):
         self.relu = nn.ReLU()
         self.dropout = nn.Dropout(0.5)
 
-    def forward(self, images):
-        features = self.inception(images)
-
         for name, param in self.inception.named_parameters():
             if "fc.weight" in name or "fc.bias" in name:
                 param.requires_grad = True
             else:
                 param.requires_grad = self.train_CNN
+
+    def forward(self, images):
+        features = self.inception(images)
 
         return self.dropout(self.relu(features))
 
