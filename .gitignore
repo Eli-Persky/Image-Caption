@@ -1,3 +1,10 @@
+flickr8k/
+runs/
+checkpoints/
+.idea/
+*.tar
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
